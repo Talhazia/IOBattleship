@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    div(ng-controller='GameController', layout='column')
+        md-toolbar.md-warn
+            .md-toolbar-tools
+                h2.md-flex Battle Ship Game # {{gameNumber}}
+                span(flex='')
+                li#turn-status.list-group-item.text-center
+        md-content(class='content', layout-fill="", layout='row')
+            div(flex='', class='canvas-container')
+                h3 You
+                canvas#canvas-grid1(width='500', height='500') Browser does not support canvas.
+            div(flex='', class='canvas-container')
+                h3 Opponent
+                canvas#canvas-grid2(width='500', height='500') Browser does not support canvas.
+    div(style='visibility: hidden')
+        #waitingDialog.md-dialog-container
+            md-dialog(layout-padding='')
+                h2 Connected to the Server
+                p
+                    | Waiting for another player to join...
+    div(style='visibility: hidden')
+        #turnDialog.md-dialog-container
+            md-dialog(layout-padding='')
+                h2 Opponent's Turn
+                p
+                    | Please wait for your turn.

@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  .container(ng-controller='GameController')
+    .row.vertical-center-row
+      .col-md-12
+        // Disconnected from server
+        #disconnected(ng-if='!isConnectedToServer')
+          .row
+            .col-sm-4.col-sm-offset-4.text-center
+              .alert.alert-danger
+                p Not connected to server. {{isConnectedToServer}}
+        // Waiting room
+        #waiting-room(ng-if='isConnectedToServer')
+          .row
+            .col-sm-4.col-sm-offset-4.text-center
+              .panel.panel-primary
+                .panel-heading Waiting Room
+                .panel-body
+                  p You are connected to the server.
+                  p Waiting for another player...
+        // Game
+        #game(ng-class='{ "show": isGameVisible }')
+          .row
+            .col-md-12
+              .panel.panel-primary
+                .panel-heading
+                  | Battleship Game #
+                  span#game-number {{gameNumber}}
+                .panel-body
+                  // Player grids
+                  .row
+                    .col-md-6.player-grid.text-center
+                      h3 You
+                      canvas#canvas-grid1(width='361', height='361') Browser does not support canvas.
+                    .col-md-6.player-grid.text-center
+                      h3 Opponent
+                      canvas#canvas-grid2(width='361', height='361') Browser does not support canvas.
+                ul.list-group
+                  // Status
+                  li#turn-status.list-group-item.text-center
+                  // Chat messages
+                  //li#messages-list.list-group-item
+                    //ul#messages
+                  // Send chat message form
+                  //li.list-group-item
+                    form#message-form(action='')
+                      .input-group
+                        input#message.form-control(autocomplete='off')
+                        .input-group-btn
+                          button.btn.btn-primary Send Message
+

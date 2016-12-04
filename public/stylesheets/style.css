@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+canvas {
+}
+
+.canvas-container {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.canvas-container h3 {
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+li {
+  list-style: none;
+}
+
+md-toolbar {
+  background-color: #3498db !important;
+}
